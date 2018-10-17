@@ -1,12 +1,8 @@
 import RawImplements.callEBS_sound;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-
-
-class callEBS_soundTest {
+public class callEBS_soundTest {
 
     @Test
     public void call_ebs() throws InterruptedException {
@@ -15,6 +11,7 @@ class callEBS_soundTest {
         rc = cebs.call_ebs("./cv_configuration.json", "./5.wav");
 
         assertEquals(rc.lastErrorInSession, 0);
+        assertEquals(rc.ResultLoadingSoSymbols, 0);
         printEBS(callEBS_sound.CLibrary.INSTANCE.lets_check("./cv_configuration.json", "./5.wav"));
         printEBS(callEBS_sound.CLibrary.INSTANCE.lets_check("./cv_configuration.json", "./a2002011001_e02_16kHz.wav.wav"));
         printEBS(callEBS_sound.CLibrary.INSTANCE.lets_check("./cv_configuration.json000", "./5.wav"));
