@@ -73,7 +73,6 @@ class GetType extends Actor {
       bos write(f.photoContent)
       bos close
 
-
       println("==>Just received  Photo")
 
     }

@@ -13,19 +13,19 @@ import java.nio.file.Paths;
 
 
 public class SecondActorTest {
-
+final int sleep = 555;
     @Test
     public void receive() throws IOException, InterruptedException {
         BLOCK bl = new BLOCK();
         byte [] d=new byte[] { 0x00, 0x01, 0x02};
         bl.getsType().tell("HI", bl.simple());
-        Thread.sleep(200);
+        Thread.sleep(sleep);
         assertEquals(forTest.nothing(), getRes());
         bl.getsType().tell(new Voice(d, "1.wav"), bl.simple());
-        Thread.sleep(200);
+        Thread.sleep(sleep);
         assertEquals(forTest.voice(), getRes());
         bl.getsType().tell(new Photo(d, "1.jpg"), bl.simple());
-        Thread.sleep(200);
+        Thread.sleep(sleep);
         assertEquals(forTest.photo(), getRes());
 
         System.out.println("###################################");
@@ -35,10 +35,10 @@ public class SecondActorTest {
 
         bl.getsType().tell(created, bl.simple());
 
-        Thread.sleep(200);
+        Thread.sleep(sleep);
         bl.getsType().tell("HI", bl.simple());
 
-        Thread.sleep(200);
+        Thread.sleep(sleep);
 
     }
 
@@ -54,7 +54,7 @@ public class SecondActorTest {
         BLOCK bl = new BLOCK();
         bl.getsType().tell(created, bl.simple());
         bl.getsType().tell("HI", bl.simple());
-        Thread.sleep(200);
+        Thread.sleep(sleep);
     }
 
 
